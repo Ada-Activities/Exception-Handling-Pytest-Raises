@@ -8,5 +8,18 @@ def test_invalid_name_no_pytest():
 
     # Think about what the test actually does and think about how to write them ourselves.
 
-    # Replace this with your own logic
-    raise Exception("test not implemented")
+
+    # Assume no error will occur
+    got_error = False
+
+    try:
+        # Call the function in a try block so we can watch for the error
+        claim_unreserved_code_school_name("Ada Developers Academy")
+    except ValueError:
+        # We saw the error so we'll change the value of `got_error` to reflect this 
+        got_error = True
+
+    # Make sure we got the expected error
+    assert got_error
+
+    # Isn't the version that uses pytest.raises clearer?
